@@ -12,13 +12,14 @@ package BT52_Bai_tap_on_luyen_lap_trinh_OOP;
 public class AptechBook extends Book {
     private String language;
     private int semester;
-    
-    public AptechBook() {
-    }  
-    public AptechBook(String language, int semester, String bookName, String bookAuthor, String producer, int yearPublishing, float price) {
+    public AptechBook(String language, int semester, String bookName,
+                      String bookAuthor, String producer,
+                      int yearPublishing, float price) {
         super(bookName, bookAuthor, producer, yearPublishing, price);
         this.language = language;
         this.semester = semester;
+    }
+    public AptechBook() {
     }
 
     public String getLanguage() {

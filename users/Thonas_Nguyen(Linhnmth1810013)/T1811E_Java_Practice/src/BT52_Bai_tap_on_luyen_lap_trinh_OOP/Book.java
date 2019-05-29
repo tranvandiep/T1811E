@@ -72,13 +72,5 @@ public class Book {
     public static void main(String[] args) {
         
     }
-    
-    public void display(){
-        System.out.println("Ten sach:" + this.bookName);
-        System.out.println("Tac gia:" + this.bookAuthor);
-        System.out.println("Nha san xuat:" + this.producer);
-        System.out.println("Gia sach:" + this.price);
-        System.out.println("Nam xuat ban:" + this.yearPublishing);
-    }
-    
+
 }
