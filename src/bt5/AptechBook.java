@@ -53,4 +53,17 @@ public class AptechBook extends Book{
         System.out.println("Nhap ky hoc : ");
         semester = Integer.parseInt(input.nextLine());
     }
+
+    @Override
+    public void display() {
+        System.out.printf("Ten sach : %s, "
+                + "tac gia : %s, nxb : %s, "
+                + "nam xuat ban : %d, "
+                + "gia ban : %f, "
+                + "ngon ngu : %s, "
+                + "ky hoc : %d", 
+                getBookName(), getBookAuthor(), 
+                getProducer(), getYearPublishing(), 
+                getPrice(), language, semester);
+    }
 }
