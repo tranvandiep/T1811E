@@ -5,6 +5,8 @@
  */
 package BT52_Bai_tap_on_luyen_lap_trinh_OOP;
 
+import java.util.Scanner;
+
 /**
  *
  * @author linhn
@@ -66,6 +68,16 @@ public class Book {
     public void setPrice(float price) {
         this.price = price;
     }
+    public static void main(String[] args) {
+        
+    }
     
+    public void display(){
+        System.out.println("Ten sach:" + this.bookName);
+        System.out.println("Tac gia:" + this.bookAuthor);
+        System.out.println("Nha san xuat:" + this.producer);
+        System.out.println("Gia sach:" + this.price);
+        System.out.println("Nam xuat ban:" + this.yearPublishing);
+    }
     
 }
