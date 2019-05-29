@@ -13,6 +13,10 @@ import java.util.Scanner;
  */
 public class main {
     public static void main(String[] args) {
+       
+/*
+        //2 phương thức input() và display để nhập và hiển thị các thuộc tính
+            của lớp.
         Book book = new Book();
         Scanner input = new Scanner(System.in);
         System.out.println("Nhap ten sach:");
@@ -25,5 +29,11 @@ public class main {
         book.setPrice(Float.parseFloat(input.nextLine()));
         System.out.println("Nhap nam xuat ban:");
         book.setYearPublishing(Integer.parseInt(input.nextLine()));
+        System.out.println("Ten sach:"+ book.getBookName());
+        System.out.println("Tac gia:" + book.getBookAuthor());
+        System.out.println("Nha san xuat:" + book.getProducer());
+        System.out.println("Gia sach:" + book.getPrice());
+        System.out.println("Nam xuat ban:" + book.getYearPublishing());
+*/
     }
 }

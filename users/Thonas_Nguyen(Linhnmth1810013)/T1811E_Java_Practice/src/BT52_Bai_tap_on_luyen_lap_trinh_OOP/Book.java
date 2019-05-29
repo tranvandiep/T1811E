@@ -18,6 +18,7 @@ public class Book {
     private int yearPublishing;
     private float price;
 
+    // 2 constructors, các phương thức set/get cho các thuộc tính của lớp.
     public Book() {
     }
 
