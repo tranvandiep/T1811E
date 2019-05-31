@@ -69,7 +69,7 @@ public class Person {
             System.out.print("Gioi tinh: ");
             this.gender = input.nextLine();
             if(this.gender.equalsIgnoreCase("nam") == false && this.gender.equalsIgnoreCase("nu") == false) {
-                System.out.println("Gioi tinh chi duoc nhap la nam hoac nu");
+                System.out.println("Gioi tinh chi duoc nhap la NAM hoac NU");
             }
         } while(this.gender.equalsIgnoreCase("nam") == false && this.gender.equalsIgnoreCase("nu") == false);
         do {
