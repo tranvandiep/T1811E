@@ -75,6 +75,12 @@ public class Student extends Person {
         }
     }
     
+     public boolean checkHocbong(){
+         if (diem >= 8){
+             return true;
+         }
+         return false;
+   }
     @Override
     public void inputInfo() {
         super.inputInfo(); //To change body of generated methods, choose Tools | Templates.
@@ -116,12 +122,7 @@ public class Student extends Person {
         System.out.println("Nhap email sinh vien: " + email);
        
     }
-   
-    public void hocBong(){
-        if (diem > 8.0){
-            System.out.println("Sinh Vien dat hoc bong");
-        }
-    }
+ 
 }
 
 
