@@ -17,7 +17,7 @@ public class Test {
 
         Employee employee2 = new Employee("Minh", "Nam", "HaNoi", "NhanVien", 5000000);
 
-        employee1.dishplay();
-        employee2.dishplay();
+        employee1.display();
+        employee2.display();
     }
 }

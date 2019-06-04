@@ -85,7 +85,7 @@ public class Employee {
         luong = Double.parseDouble(input.nextLine());
     }
 
-    public void dishplay() {
+    public void display() {
         System.out.println(toString());
     }
 
