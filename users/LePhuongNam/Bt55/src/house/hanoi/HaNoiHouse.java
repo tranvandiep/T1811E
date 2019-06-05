@@ -5,6 +5,7 @@
  */
 package house.hanoi;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -28,6 +29,28 @@ public class HaNoiHouse extends house.cm.House{
 
     public void setTenQuan(String tenQuan) {
         this.tenQuan = tenQuan;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        boolean serch;
+        serch = super.equals(obj);
+        if (this == obj) {
+            serch = true;
+        }
+        if (obj == null) {
+            serch = false;
+        }
+        if (getClass() != obj.getClass()) {
+            serch = false;
+        }
+        final HaNoiHouse other = (HaNoiHouse) obj;
+        if (!Objects.equals(this.tenQuan, other.tenQuan)) {
+            serch = false;
+        } else {
+            serch = true;
+        }
+        return serch;
     }
 
     @Override

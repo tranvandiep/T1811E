@@ -99,7 +99,7 @@ public class ManagerHouse {
                     serchHouse.setTenQuan(scanner.nextLine());
                     
                     houseHnList.forEach((t) -> {
-                        if(t.getSoNha()==serchHouse.getSoNha() && t.getDiaChi()==serchHouse.getDiaChi() && t.getTenQuan()==serchHouse.getTenQuan()){
+                        if(t.equals(serchHouse)){
                             t.display();
                         }
                     });
