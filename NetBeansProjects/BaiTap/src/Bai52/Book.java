@@ -12,59 +12,89 @@ import java.util.Scanner;
  * @author giangduy
  */
 public class Book {
-    String bookName;
-    String bookAuthor;
-    String producer;
-    int yearPublishing;
-    float price;
-    
+    private String bookName;
+
+    private String bookAuthor;
+
+    private String producer;
+
+    private int yearPublishing;
+
+    private float price;
+
     public Book() {
-        System.out.println("Book");
     }
-    
+
     public Book(String bookName, String bookAuthor, String producer, int yearPublishing, float price) {
-        System.out.println("Book");
-        this.bookAuthor = bookAuthor;
         this.bookName = bookName;
+        this.bookAuthor = bookAuthor;
         this.producer = producer;
         this.yearPublishing = yearPublishing;
         this.price = price;
     }
-    public String getbookName() {
+
+    public String getBookName() {
         return bookName;
     }
-    public void setbookName(String bookName) {
+
+    public void setBookName(String bookName) {
         this.bookName = bookName;
     }
-    public String getbookAuthor() {
+
+    public String getBookAuthor() {
         return bookAuthor;
     }
-    public void setbookAuthor(String bookAuthor) {
+
+    public void setBookAuthor(String bookAuthor) {
         this.bookAuthor = bookAuthor;
     }
-    public String getproducer() {
+
+    public String getProducer() {
         return producer;
     }
-    public void setproducer(String producer) {
+
+    public void setProducer(String producer) {
         this.producer = producer;
     }
-    public int getyearPublishing() {
+
+    public int getYearPublishing() {
         return yearPublishing;
     }
-    public void setyearPublishing(int yearPublishing) {
+
+    public void setYearPublishing(int yearPublishing) {
         this.yearPublishing = yearPublishing;
     }
-    public float getprice() {
+
+    public float getPrice() {
         return price;
     }
-    public void setprice(float price) {
+
+    public void setPrice(float price) {
         this.price = price;
     }
+
     public void input() {
         Scanner input = new Scanner(System.in);
-        
-        
-        
+
+        System.out.print("Nhap ten sach: ");
+        bookName = input.nextLine();
+        System.out.print("Nhap ten tac gia: ");
+        bookAuthor = input.nextLine();
+        System.out.print("Nhap ten nha san xuat: ");
+        producer = input.nextLine();
+        System.out.print("Nhap nam san xuat: ");
+        yearPublishing = input.nextInt();
+        System.out.print("Nhap gia: ");
+        price = input.nextFloat();
+    }
+
+    public void display() {
+        System.out.println(toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" + "bookName=" + bookName + ", bookAuthor=" + bookAuthor + ", producer=" + producer + ", yearPublishing=" + yearPublishing + ", price=" + price + '}';
     }
     
 }

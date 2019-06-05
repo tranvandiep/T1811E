@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package Bai52;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,109 +15,83 @@ import java.util.Scanner;
  * @author giangduy
  */
 public class Test {
-    static List<AptechBook> bookList = new ArrayList<>();
-    static Scanner input = new Scanner(System.in);
-    
     public static void main(String[] args) {
-        int choose;
-        
+        int menu;
+        Scanner input = new Scanner(System.in);
+        ArrayList<AptechBook> bookList = new ArrayList<>();
+
         do {
             showMenu();
-            choose = Integer.parseInt(input.nextLine());
-            
-            switch(choose) {
+            menu = Integer.parseInt(input.nextLine());
+
+            switch (menu) {
                 case 1:
-                    input();
+                    System.out.print("Nhap so luong sach: ");
+                    int n = Integer.parseInt(input.nextLine());
+
+                    for (int i = 0; i < n; i++) {
+                        AptechBook atB = new AptechBook();
+                        atB.input();
+
+                        bookList.add(atB);
+                    }
+
                     break;
                 case 2:
-                    display();
+                    for (int i = 0; i < bookList.size(); i++) {
+                        bookList.get(i).display();
+                    }
                     break;
                 case 3:
-                    sortByYearPublishing();
+                    Collections.sort(bookList, new Comparator<AptechBook>() {
+                        @Override
+                        public int compare(AptechBook o1, AptechBook o2) {
+                            return o1.getYearPublishing() >= o2.getYearPublishing() ? 1 : -1;
+                        }
+                    });
+
+                    for (int i = 0; i < bookList.size(); i++) {
+                        bookList.get(i).display();
+                    }
                     break;
                 case 4:
-                    searchByName();
+                    System.out.print("Nhap ten sach can tim: ");
+                    String bookFind = input.nextLine();
+
+                    for (AptechBook atB : bookList) {
+                        if (atB.getBookName().equalsIgnoreCase(bookFind)) {
+                            atB.display();
+                        }
+                    }
                     break;
                 case 5:
-                    searchByAuthor();
+                    System.out.print("Nhap ten tac gia can tim: ");
+                    String authorFind = input.nextLine();
+
+                    for (AptechBook atB: bookList) {
+                        if (atB.getBookAuthor().equalsIgnoreCase(authorFind)) {
+                            atB.display();
+                        }
+                    }
                     break;
                 case 6:
-                    System.out.println("Exit!!!");
+                    System.out.print("Goodbye!");
                     break;
                 default:
-                    System.out.println("Input failed!!!");
+                    System.err.println("Nhap sai!!");
                     break;
             }
-        } while(choose != 6);
+        } while (menu
+                != 6);
+
     }
-    
+
     static void showMenu() {
-        System.out.println("1.    Nhập thông tin n cuốn sách của Aptech");
-        System.out.println("2.    Hiển thị thông tin vừa nhập");
-        System.out.println("3.    Sắp xếp thông tin giảm dần theo năm xuất bản và hiển thị");
-        System.out.println("4.    Tìm kiếm theo tên sách");
-        System.out.println("5.    Tìm kiếm theo tên tác giả");
-        System.out.println("6.    Thoát.");
-        System.out.println("Choose : ");
-    }
-
-    private static void input() {
-        System.out.println("Nhap so sach can them : ");
-        int n = Integer.parseInt(input.nextLine());
-        
-        for (int i = 0; i < n; i++) {
-            System.out.println("Nhap quan sach thu : " + (i+1));
-            AptechBook book = new AptechBook();
-            book.input();
-            
-            bookList.add(book);
-        }
-    }
-
-    private static void display() {
-//        for (int i = 0; i < bookList.size(); i++) {
-//            bookList.get(i).display();
-//        }
-        for (AptechBook aptechBook : bookList) {
-            aptechBook.display();
-        }
-//        bookList.forEach((aptechBook) -> {
-//            aptechBook.display();
-//        });
-    }
-
-    private static void sortByYearPublishing() {
-        Collections.sort(bookList, new Comparator<AptechBook>() {
-            @Override
-            public int compare(AptechBook o1, AptechBook o2) {
-                if(o1.getYearPublishing() > o2.getYearPublishing()) {
-                    return 1;
-                } else {
-                    return -1;
-                }
-            }
-        });
-    }
-
-    private static void searchByName() {
-        System.out.println("Nhap ten sach can tim : ");
-        String bookName = input.nextLine();
-        
-        for (AptechBook aptechBook : bookList) {
-            if(aptechBook.getBookName().equalsIgnoreCase(bookName)) {
-                aptechBook.display();
-            }
-        }
-    }
-
-    private static void searchByAuthor() {
-        System.out.println("Nhap ten tac gia can tim : ");
-        String bookAuthor = input.nextLine();
-        
-        for (AptechBook aptechBook : bookList) {
-            if(aptechBook.getBookAuthor().equalsIgnoreCase(bookAuthor)) {
-                aptechBook.display();
-            }
-        }
+        System.out.println("1. Nhap thong tin sach.");
+        System.out.println("2. Hien thi thong tin sach.");
+        System.out.println("3. Sap xep giam dan theo nam san xuat va hien thi thong tin sach.");
+        System.out.println("4. Tim kiem theo ten sach.");
+        System.out.println("5. Tim kiem theo ten tac gia.");
+        System.out.println("6. Thoat.");
     }
 }
