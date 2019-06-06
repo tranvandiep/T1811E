@@ -47,7 +47,6 @@ public void input(){
         System.out.println("Nhap dia chi: ");
         address = input.nextLine();
         
-        System.out.println("*--------------------------*");
     }
     public void input(ArrayList<Author> authorList){
         input();
