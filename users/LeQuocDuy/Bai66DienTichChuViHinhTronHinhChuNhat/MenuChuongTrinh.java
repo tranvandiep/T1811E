@@ -100,11 +100,10 @@ public class MenuChuongTrinh {
                                     default:
                                         System.out.println("Vui lòng chọn đúng theo Menu đề bài!");
                                         do{
-                                            repeat = false;
                                             System.out.print("(y/n): ");
                                             Select2 = in.next().charAt(0);
                                             if(Select2==y){
-                                                    continue;
+                                                repeat = false;
                                             }
                                             else if(Select2==n){
                                                 System.exit(0);
