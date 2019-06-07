@@ -52,8 +52,8 @@ public class ManagerHouse {
                     break;
                 case 2:
                     if (houseHnList.size() < 1) {
-                        System.err.println("Khong co ngoi nha nao de hien thi !");
-                        break;
+                        System.out.println("Khong co ngoi nha nao de hien thi 2!");
+                        
                     } else {
                         System.out.println("");
 
@@ -62,12 +62,13 @@ public class ManagerHouse {
                         });
 
                         System.out.println("");
-                        break;
+                        
                     }
+                    break;
                 case 3:
                     if (houseHnList.size() < 1) {
-                        System.err.println("Khong co ngoi nha nao de hien thi !");
-                        break;
+                        System.out.println("Khong co ngoi nha nao de hien thi 3!");
+                        
                     } else {
                         List<String> arrDiaChi = new ArrayList<>();
                         System.out.println("");
@@ -85,8 +86,9 @@ public class ManagerHouse {
                             });
                         });
                         System.out.println("");
-                        break;
+                        
                     }
+                    break;
                 case 4:
                     HaNoiHouse serchHouse = new HaNoiHouse();
                     
