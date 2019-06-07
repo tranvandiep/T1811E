@@ -5,6 +5,7 @@
  */
 package Phan3_Loop;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -52,8 +53,54 @@ public class BT39 {
             }
         }
 --------------------------------------------------------*/
+/*Practice 4:
         int max;
         Scanner input = new Scanner(System.in);
+        System.out.printf("Input max: ");
+        max = Integer.parseInt(input.nextLine());
+        int[] F = new int[max];
+        for(int i = 0; i<max; i++){
+            if( i == 0 || i == 1){
+                F[i] = 1 ;
+            } else 
+                F[i] = F[i-1]+F[i-2];
+            if(F[i] < max){
+                System.out.println("The number of Fibonaci lower than max is:" +
+                         F[i]);
+             }
+        }
+---------------------------------------------------------*/ 
+        int n;
+        int p;
+        int tmpSort;
+        Scanner input = new Scanner(System.in);
+        System.out.printf("Input N: ");
+        n = Integer.parseInt(input.nextLine());
+        int[] myArr;
+        myArr = new int[n];
+        for(int i = 0; i < n; i++){
+            System.out.printf("The number of myArr["+i+"] is: ");
+            myArr[i] = Integer.parseInt(input.nextLine());           
+        }
+        System.out.printf("What do you wanna sort myArr by DESC(1)/ASC(2)?:");
+        p = Integer.parseInt(input.nextLine());
+        if(p == 1){
+           System.out.println("The myArry sort by DESC is: ");
+           for(int i =0; i < n -1; i++){
+               for(int j = n -1; j>= 1; j--){
+                if(myArr[j] < myArr[j - 1]){
+                    tmpSort = myArr[j];
+                    myArr[j] = myArr[j-1];
+                    myArr[j - 1] = tmpSort;
+                }
+               }
+           }
+           for(int i =0; i < n; i++){
+               System.out.printf("The number of myArr["+i+
+                              "] after sort by DESC is:" );
+                System.out.println(myArr[i]);
+            }
+        }
         
     }
 }
