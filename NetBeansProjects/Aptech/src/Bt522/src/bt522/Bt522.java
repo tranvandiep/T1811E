@@ -9,6 +9,13 @@ package bt522;
  *
  * @author mac
  */
-public interface IInfor {
-    public void showInfor();
+public class Bt522 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
+    
 }
