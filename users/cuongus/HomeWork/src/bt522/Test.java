@@ -16,8 +16,6 @@ import java.util.Scanner;
  */
 public class Test {
     static List<IInfor> list = new ArrayList<>();
-    static People people = new People();
-    static Car car = new Car();
     public static void main(String[] args) { 
         
 //        people.input();
@@ -39,6 +37,8 @@ public class Test {
         System.out.println("Nhap so luong doi tuong: ");
         n = Integer.parseInt(input.nextLine());
         for (int i = 0; i < n; i++) {
+            People people = new People();
+            Car car = new Car();
             System.out.println("Nhap thong tin nguoi : " + (i+1));
             people.input();
             System.out.println("Nhap thong xe : " + (i+1));
@@ -49,8 +49,7 @@ public class Test {
         }
         
         for (int i = 0; i < list.size(); i++) {
-            people.showInfor();
-            car.showInfor();
+            list.get(i).showInfor();
         }
     }
    
