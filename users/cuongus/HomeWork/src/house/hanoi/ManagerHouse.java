@@ -6,6 +6,8 @@
 package house.hanoi;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -35,12 +37,49 @@ public class ManagerHouse {
                     break;
                     
                 case 2:
+                    for (int i = 0; i < hnHouseList.size(); i++) {
+                        hnHouseList.get(i).dislay();
+                    }
                     break;
                     
                 case 3:
+//                        Collections.sort(hnHouseList, new Comparator<HaNoiHouse>(){
+//                        @Override
+//                    public int compare(HaNoiHouse o1, HaNoiHouse o2) {
+//                        int cmp = o1.getDiaChi().compareTo(o2.getDiaChi());
+//                        if (cmp >=0){
+//                            return 1;
+//                        }
+//                        return -1;
+//                    }
+//                    
+//                });
+                Collections.sort(hnHouseList, (HaNoiHouse o1, HaNoiHouse o2) -> {
+                    int cmp = o1.getDiaChi().compareTo(o2.getDiaChi());
+                    if (cmp >=0){
+                        return 1;
+                    }
+                    return -1;
+                   });
+                for(int i = 0; i < hnHouseList.size() ; i++){
+                    hnHouseList.get(i).dislay();
+                    }
                     break;
                     
                 case 4:
+                    System.out.println("Nhap dia chi nha cna tim kiem.");
+                    String address = input.nextLine();
+                    int count = 0;
+                    for (int i = 0; i < hnHouseList.size(); i++) {
+                        if (hnHouseList.get(i).getDiaChi().equalsIgnoreCase(address)){
+                            hnHouseList.get(i).dislay();
+                            count++;
+                        }
+                    }
+                    if(count == 0){
+                        System.out.println("Dia chi can tim khong co!!!");
+                    }
+                    
                     break;
                     
                 case 5:

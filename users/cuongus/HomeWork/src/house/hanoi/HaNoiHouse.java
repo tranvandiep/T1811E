@@ -40,13 +40,16 @@ public class HaNoiHouse extends House{
     @Override
     public void dislay() {
         super.dislay(); //To change body of generated methods, choose Tools | Templates.
-        System.out.println(toString());
+        System.out.print(" ten Quan: " + tenQuan);
     }
 
-    @Override
-    public String toString() {
-        return "HaNoiHouse{" + "tenQuan=" + tenQuan + '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "HaNoiHouse{" + "tenQuan=" + tenQuan + '}';
+//    }
+
+    
+  
     
  
     

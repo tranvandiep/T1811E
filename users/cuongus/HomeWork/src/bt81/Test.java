@@ -75,11 +75,15 @@ public class Test {
                 case 4:
                     System.out.println("Nhap ten but danh can tim kiem: ");
                     String nickname = input.nextLine();
-                    
+                    int count = 0;
                     for (int i = 0; i < bookList.size(); i++) {
                         if(bookList.get(i).getNickname().equalsIgnoreCase(nickname)){
                             bookList.get(i).dislay();
+                            count++;
                         }
+                    }
+                    if(count == 0){
+                        System.out.println("But can tim khong co!!!");
                     }
                     break;
                 

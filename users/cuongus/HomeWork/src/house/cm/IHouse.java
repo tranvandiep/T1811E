@@ -12,5 +12,8 @@ package house.cm;
 public interface IHouse {
     public void input();
     
+    /**
+     *
+     */
     public void dislay();
 }
