@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BT39;
+package bt39;
 
 import java.util.Scanner;
 
@@ -11,18 +11,18 @@ import java.util.Scanner;
  *
  * @author ASUS
  */
-public class BT39Bai2 {
+public class Bai2 {
     public static void main(String[] args) {
-        Scanner MangSoNguyen = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         int n;
         int[] so = new int[100]; // int so[100];
         int tong =0;
         
         System.out.printf("Nhap so phan tu trong mang: ");
-        n = MangSoNguyen.nextInt();
+        n = input.nextInt();
         for (int i =0; i <n; i++) {
             System.out.printf("Nhap so nguyen thu %d trong day: ", i +1);
-            so[i] = MangSoNguyen.nextInt();
+            so[i] = input.nextInt();
         }
         
         for (int i =0; i <n; i++) {

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BT30;
-import java.awt.BorderLayout;
+package bt30;
 import java.util.Scanner;
+
 /**
  *
  * @author ASUS
  */
-public class phuongTrinhBacNhat {
+public class PhuongTrinhBacNhat {
     public static void main(String [] args) {
         Scanner input = new Scanner(System.in); 
         float a;
@@ -28,6 +28,5 @@ public class phuongTrinhBacNhat {
             float c = (-b /a);
             System.out.printf("ptrinh co nghiem x duy nhat co gia tri bang: %f\n", c);
         }
-        
     }
 }

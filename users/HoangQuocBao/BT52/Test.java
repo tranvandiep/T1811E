@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BT52;
+package bt52;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,13 +19,13 @@ public class Test {
     static Scanner input = new Scanner(System.in);
     
     public static void main(String[] args) {
-        int choose;
+        int so;
         
         do {
             showMenu();
-            choose = Integer.parseInt(input.nextLine());
+            so = Integer.parseInt(input.nextLine());
             
-            switch(choose) {
+            switch(so) {
                 case 1:
                     input();
                     break;
@@ -48,17 +48,17 @@ public class Test {
                     System.out.println("Input failed!!!");
                     break;
             }
-        } while(choose != 6);
+        } while(so != 6);
     }
     
     static void showMenu() {
-        System.out.println("1.    Nhập thông tin n cuốn sách của Aptech");
-        System.out.println("2.    Hiển thị thông tin vừa nhập");
-        System.out.println("3.    Sắp xếp thông tin giảm dần theo năm xuất bản và hiển thị");
-        System.out.println("4.    Tìm kiếm theo tên sách");
-        System.out.println("5.    Tìm kiếm theo tên tác giả");
-        System.out.println("6.    Thoát.");
-        System.out.println("Choose : ");
+        System.out.println("1.Nhập thông tin n cuốn sách của Aptech");
+        System.out.println("2.Hiển thị thông tin vừa nhập");
+        System.out.println("3.Sắp xếp thông tin giảm dần theo năm xuất bản và hiển thị");
+        System.out.println("4.Tìm kiếm theo tên sách");
+        System.out.println("5.Tìm kiếm theo tên tác giả");
+        System.out.println("6.Thoát.");
+        System.out.printf("Moi chon so: ");
     }
 
     private static void input() {

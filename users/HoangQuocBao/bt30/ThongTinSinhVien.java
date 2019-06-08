@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BT30;
-
+package bt30;
 import java.util.Scanner;
 
 /**
  *
  * @author ASUS
  */
-public class nhapThongTinSinhVien {
+public class ThongTinSinhVien {
     public static void main(String [] args ) {
         Scanner input = new Scanner(System.in);
         

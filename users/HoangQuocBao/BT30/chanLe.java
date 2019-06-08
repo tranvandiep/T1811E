@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BT30;
-
+package bt30;
 import java.util.Scanner;
 
 /**
  *
  * @author ASUS
  */
-public class chanLe {
+public class ChanLe {
     static Scanner input = new Scanner(System.in);
     
     public static void main(String [] args ) {
@@ -23,4 +22,4 @@ public class chanLe {
         if (x %2 == 0) System.out.printf("x la so chan\n");
         else System.out.printf("x la so le\n");
     }
-}    
+}

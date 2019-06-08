@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BT39;
+package bt39;
 
 import java.util.Scanner;
 
-public class BT39Bai4 {
+public class Bai4 {
     
     public static int fibonacci(int k) {
 	if(k<0) return -1;

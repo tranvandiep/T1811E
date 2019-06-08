@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BT52;
+package bt52;
 
 import java.util.Scanner;
 
