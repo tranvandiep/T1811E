@@ -51,11 +51,14 @@ public class Book implements IBook {
         try {
             System.out.print("Nhập năm xuất bản: ");
             this.yearPublishing = Integer.parseInt(input.nextLine());
-        } catch(Exception e) {
+        } 
+        
+        catch(Exception e) {
             System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số.");
             System.out.print("Nhập năm xuất bản: ");
             this.yearPublishing = Integer.parseInt(input.nextLine());
         }
+        
         System.out.print("Nhập bút danh tác giả: ");
         this.authorPseu = input.nextLine();
     }

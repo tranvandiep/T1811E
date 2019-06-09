@@ -21,6 +21,7 @@ public class LibraryManager extends Library {
         System.out.println("3. Nhập thông tin tác giả.");
         System.out.println("4. Tìm kiếm sách theo tên tác giả");
         System.out.println("5. Thoát.");
+        
         try {
             System.out.print("Nhập lựa chọn: ");
             check = Integer.parseInt(input.nextLine());
@@ -28,32 +29,39 @@ public class LibraryManager extends Library {
                 System.out.println("Nhập sai quy cách. Chỉ được nhập từ 1 đến 5.");
                 return menu(flag);
             } 
-        } catch(Exception e) {
+        } 
+        
+        catch(Exception e) {
             System.out.println("Nhập sai quy cách. Chỉ được nhập lựa chọn là chữ số.");
             return menu(flag);
         }
+        
         if(flag == 0 && check != 3 && check != 5) {
             System.out.println("Thư viện trống. Nhập danh sách sách.");
             check = 1;
         }
         return check;
     }
+    
     public static int choseNextOrNo() {
         Scanner input = new Scanner(System.in);
         System.out.print("\nTiếp tục lựa chọn khác? YES/NO ");
         String next = input.nextLine();
+        
         if(next.equalsIgnoreCase("yes")) {
             return 1;
-        } else if(next.equalsIgnoreCase("no")) {
+        } 
+        
+        else if(next.equalsIgnoreCase("no")) {
             return 0;
-        } else {
+        } 
+        
+        else {
             System.out.print("Nhập sai từ khóa. Chỉ được nhập YES hoặc NO.");
             return choseNextOrNo();
         }
     }
-    
-    
-    
+
     public static void main(String[] args) {
         Library library = new Library();
         int chose;
@@ -83,7 +91,9 @@ public class LibraryManager extends Library {
             }
             if(chose != 5) {
                 next = choseNextOrNo();
-            } else {
+            } 
+            
+            else {
                 break;
             }    
         } while(next != 0);

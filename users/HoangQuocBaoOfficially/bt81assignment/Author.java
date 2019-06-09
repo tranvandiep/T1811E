@@ -13,12 +13,12 @@ import java.util.Scanner;
  */
 
 public class Author implements IAuthor {
+    Scanner input = new Scanner(System.in);
     private String authorName;
     private int authorAge;
     private String authorPseu;
     private String authorBirth;
     private String authorHome;
-    Scanner input = new Scanner(System.in);
 
     public Author() {
     }
@@ -67,14 +67,18 @@ public class Author implements IAuthor {
     public void input() {
         System.out.print("Nhập tên: ");
         this.authorName = input.nextLine();
+        
         try {
             System.out.print("Nhập tuổi: ");
             this.authorAge = Integer.parseInt(input.nextLine());
-        } catch(Exception e) {
+        } 
+        
+        catch(Exception e) {
             System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số.");
             System.out.print("Nhập tuổi: ");
             this.authorAge = Integer.parseInt(input.nextLine());
         }
+        
         System.out.print("Nhập bút danh: ");
         this.authorPseu = input.nextLine();
         System.out.print("Nhập ngày sinh: ");

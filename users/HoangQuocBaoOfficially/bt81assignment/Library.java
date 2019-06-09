@@ -23,27 +23,39 @@ public class Library {
         try {
             if(flag == 0) {
                 System.out.print("Nhập số lượng sách: ");
-            } else {
+            } 
+            
+            else {
                 System.out.print("Nhập số lượng sách cần nhập thêm: ");
             }
-        } catch(Exception e) {
+        } 
+        
+        catch(Exception e) {
             System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số");
             return inputBook(flag);
         }
+        
         int n = Integer.parseInt(input.nextLine());
+        
         for(int i = m; i < n+m; i++) {
             if(m == 0) {
                 System.out.println("Nhập thông tin quyển sách thứ " +(i+1) +":");
-            } else {
+            } 
+            
+            else {
                 System.out.println("Nhập thông tin quyển sách thứ " +i +":");
             }
+            
             Book book = new Book();
             book.input();
             this.bookList.add(book);
+            
             if(this.authorList.size() == 0) {
                 System.out.println(book.getAuthorPseu() +" là tác giả mới. Nhập thông tin tác giả mới");
                 author.input();
-            } else {
+            } 
+            
+            else {
                 for(int j = this.authorList.size()-1; i < 0; i--) {
                     if(book.getAuthorPseu().equalsIgnoreCase(this.authorList.get(j).getAuthorPseu()) == false) {
                         System.out.println(book.getAuthorPseu() +" là tác giả mới. Nhập thông tin tác giả mới");
@@ -55,6 +67,7 @@ public class Library {
         }
         return this.bookList;
     }
+    
     public void displayBook() {
         for(Book book : this.bookList) {
             book.display();
@@ -66,15 +79,21 @@ public class Library {
         try {
             if(flag == 0) {
                 System.out.print("Nhập số lượng tác giả: ");
-            } else {
+            } 
+            
+            else {
                 System.out.print("Nhập số lượng tác giả cần nhập thêm: ");
             }
-        } catch(Exception e) {
+        } 
+        
+        catch(Exception e) {
             System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số");
             return inputAuthor(flag);
         }
+        
         int n = Integer.parseInt(input.nextLine());
         int a = 1;
+        
         for(int i = m; i < n+m; i++) {
             if(m == 0) {
                 System.out.println("Nhập thông tin tác giả thứ " +(i+1) +":");
@@ -106,6 +125,7 @@ public class Library {
         int flag = 0;
         System.out.print("Nhập bút danh tác giả của quyển sách cần tìm: ");
         String search = input.nextLine();
+        
         for(Book book : this.bookList) {
             if(book.getAuthorPseu().equalsIgnoreCase(search)) {
                 book.display();
@@ -114,7 +134,9 @@ public class Library {
         }
         if(flag == 0) {
             System.out.println("Không tìm được quyển sách nào của tác giả " +search);
-        } else {
+        } 
+        
+        else {
             System.out.println("Tìm được " +flag + " quyển sách của tác giả " +search);
         }
     }
