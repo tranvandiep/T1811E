@@ -46,20 +46,20 @@ public class Book implements IBook {
     
     @Override
     public void input() {
-        System.out.print("Nhập tên sách: ");
+        System.out.print("Nhap ten sach: ");
         this.bookName = input.nextLine();
         try {
-            System.out.print("Nhập năm xuất bản: ");
+            System.out.print("Nhap nam xuat ban sach: ");
             this.yearPublishing = Integer.parseInt(input.nextLine());
         } 
         
         catch(Exception e) {
-            System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số.");
-            System.out.print("Nhập năm xuất bản: ");
+            System.out.println("Chi duoc nhap nam xuat ban");
+            System.out.print("Nhap lai nam xuat ban: ");
             this.yearPublishing = Integer.parseInt(input.nextLine());
         }
         
-        System.out.print("Nhập bút danh tác giả: ");
+        System.out.print("Nhap but danh tac gia viet sach: ");
         this.authorPseu = input.nextLine();
     }
 

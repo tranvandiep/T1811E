@@ -22,16 +22,16 @@ public class Library {
         int m = this.bookList.size();
         try {
             if(flag == 0) {
-                System.out.print("Nhập số lượng sách: ");
+                System.out.print("Nhap so sach: ");
             } 
             
             else {
-                System.out.print("Nhập số lượng sách cần nhập thêm: ");
+                System.out.print("Nhap so luong sach can them vao: ");
             }
         } 
         
         catch(Exception e) {
-            System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số");
+            System.out.println("Chi duoc nhap so");
             return inputBook(flag);
         }
         
@@ -39,11 +39,11 @@ public class Library {
         
         for(int i = m; i < n+m; i++) {
             if(m == 0) {
-                System.out.println("Nhập thông tin quyển sách thứ " +(i+1) +":");
+                System.out.println("Nhap thong tin sach thu " +(i+1) +":");
             } 
             
             else {
-                System.out.println("Nhập thông tin quyển sách thứ " +i +":");
+                System.out.println("Nhap thong tin sach thu " +i +":");
             }
             
             Book book = new Book();
@@ -51,14 +51,14 @@ public class Library {
             this.bookList.add(book);
             
             if(this.authorList.size() == 0) {
-                System.out.println(book.getAuthorPseu() +" là tác giả mới. Nhập thông tin tác giả mới");
+                System.out.println(book.getAuthorPseu() +" la tac gia moi ___ Nhap thogn tin tac gia moi");
                 author.input();
             } 
             
             else {
                 for(int j = this.authorList.size()-1; i < 0; i--) {
                     if(book.getAuthorPseu().equalsIgnoreCase(this.authorList.get(j).getAuthorPseu()) == false) {
-                        System.out.println(book.getAuthorPseu() +" là tác giả mới. Nhập thông tin tác giả mới");
+                        System.out.println(book.getAuthorPseu() +" la tac gia moi ___ Nhap thogn tin tac gia moi");
                         author.input();
                     }
                 }
@@ -78,16 +78,16 @@ public class Library {
         int m = this.authorList.size();
         try {
             if(flag == 0) {
-                System.out.print("Nhập số lượng tác giả: ");
+                System.out.print("Nhap so luong tac gia: ");
             } 
             
             else {
-                System.out.print("Nhập số lượng tác giả cần nhập thêm: ");
+                System.out.print("Nhap so luong tac gia can them vao: ");
             }
         } 
         
         catch(Exception e) {
-            System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số");
+            System.out.println("Chi duoc nhap so");
             return inputAuthor(flag);
         }
         
@@ -96,9 +96,9 @@ public class Library {
         
         for(int i = m; i < n+m; i++) {
             if(m == 0) {
-                System.out.println("Nhập thông tin tác giả thứ " +(i+1) +":");
+                System.out.println("Nhap thong tin tac gia thu " +(i+1) +":");
             } else {
-                System.out.println("Nhập thông tin tác giả thứ " +a +":");
+                System.out.println("Nhap thong tin tac gia thu " +a +":");
                 a++;
             }
             Author author = new Author();
@@ -106,7 +106,7 @@ public class Library {
             if(this.authorList.size() > 0) {
                 for(int j = this.authorList.size()-1; j >= 0 ; j--) {
                     if(author.getAuthorPseu().equalsIgnoreCase(this.authorList.get(j).getAuthorPseu())) {
-                        System.out.println("Bút danh tac giả đã tồn tại. Nhập lại");
+                        System.out.println("Da co but danh____ Xin nhap but danh khac");
                         author.input();
                     }
                 }
@@ -123,7 +123,7 @@ public class Library {
     
     public void searchByAuthorPseu() {
         int flag = 0;
-        System.out.print("Nhập bút danh tác giả của quyển sách cần tìm: ");
+        System.out.print("Nhap but danh tac gia sach can tim: ");
         String search = input.nextLine();
         
         for(Book book : this.bookList) {
@@ -133,11 +133,11 @@ public class Library {
             }
         }
         if(flag == 0) {
-            System.out.println("Không tìm được quyển sách nào của tác giả " +search);
+            System.out.println("Ko tim dc scah cua tac gia co but danh " +search);
         } 
         
         else {
-            System.out.println("Tìm được " +flag + " quyển sách của tác giả " +search);
+            System.out.println("Co " +flag + " sach cua tac gia co but danh" +search);
         }
     }
 

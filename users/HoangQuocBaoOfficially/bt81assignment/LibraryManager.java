@@ -16,28 +16,28 @@ public class LibraryManager extends Library {
     public static int menu(int flag) {
         int check;
         Scanner input = new Scanner(System.in);
-        System.out.println("\n1. Nhập thông tin sách.");
-        System.out.println("2. Hiển thị danh sách sách đã nhập.");
-        System.out.println("3. Nhập thông tin tác giả.");
-        System.out.println("4. Tìm kiếm sách theo tên tác giả");
-        System.out.println("5. Thoát.");
+        System.out.printf("\n1.Nhap thong tin sach\n");
+        System.out.printf("2.Thong tin sach da nhap\n");
+        System.out.printf("3.Nhap thong tin tac gia\n");
+        System.out.printf("4.Tim sach theo tac gia\n");
+        System.out.printf("5.Thoat\n");
         
         try {
-            System.out.print("Nhập lựa chọn: ");
+            System.out.print("Chon so: ");
             check = Integer.parseInt(input.nextLine());
             if(check < 0 || check > 5) {
-                System.out.println("Nhập sai quy cách. Chỉ được nhập từ 1 đến 5.");
+                System.out.println("Nhap sai so");
                 return menu(flag);
             } 
         } 
         
         catch(Exception e) {
-            System.out.println("Nhập sai quy cách. Chỉ được nhập lựa chọn là chữ số.");
+            System.out.println("Chon sai so ____ Chi duoc nhap chu so");
             return menu(flag);
         }
         
         if(flag == 0 && check != 3 && check != 5) {
-            System.out.println("Thư viện trống. Nhập danh sách sách.");
+            System.out.println("Chua co du lieu ____ Moi nhap: ");
             check = 1;
         }
         return check;
@@ -45,7 +45,7 @@ public class LibraryManager extends Library {
     
     public static int choseNextOrNo() {
         Scanner input = new Scanner(System.in);
-        System.out.print("\nTiếp tục lựa chọn khác? YES/NO ");
+        System.out.print("\nContinue??? YES/NO ");
         String next = input.nextLine();
         
         if(next.equalsIgnoreCase("yes")) {
@@ -57,7 +57,7 @@ public class LibraryManager extends Library {
         } 
         
         else {
-            System.out.print("Nhập sai từ khóa. Chỉ được nhập YES hoặc NO.");
+            System.out.print("Nhap sai");
             return choseNextOrNo();
         }
     }

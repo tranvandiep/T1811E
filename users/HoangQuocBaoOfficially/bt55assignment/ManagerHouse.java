@@ -19,32 +19,32 @@ public class ManagerHouse {
     
     public static int menu() {
         Scanner input = new Scanner(System.in);
-        int chose;
+        int so;
         
         do {
-            System.out.println("1. Nhập thông tin nhà.");
-            System.out.println("2. In ra danh sách nhà.");
-            System.out.println("3. In ra danh sách nhà sắp xếp theo địa chỉ.");
-            System.out.println("4. Tìm kiếm nhà theo địa chỉ.");
-            System.out.println("5. Thoát.");
+            System.out.printf("1.Nhap thong tin nha\n");
+            System.out.printf("2.Danh sach nha\n");
+            System.out.printf("3.Danh sach nha sap xep theo dia chi\n");
+            System.out.printf("4.Tim nha theo dia chi\n");
+            System.out.printf("5.Thoat\n");
             
             try {
-                System.out.print("Nhập lựa chọn: ");
-                chose = Integer.parseInt(input.nextLine());
+                System.out.printf("Nhap so: ");
+                so = Integer.parseInt(input.nextLine());
             } 
             
             catch(Exception e) {
-                System.out.println("Chỉ được nhập lựa chọn là chữ số");
-                System.out.print("Nhập lựa chọn: ");
-                chose = Integer.parseInt(input.nextLine());
+                System.out.printf("Chon sai so______ Moi nhap lai: ");
+                System.out.print("Chon so: ");
+                so = Integer.parseInt(input.nextLine());
             }
             
-            if(chose < 1 || chose > 5) {
-                System.out.println("Nhập sai .Chỉ được nhập lựa chọn từ 1 đến 5.");
+            if(so < 1 || so > 5) {
+                System.out.printf("Chon sai so______ Moi nhap lai: ");
             }
             
-        } while(chose < 1 || chose > 5);
-        return chose;
+        } while(so < 1 || so > 5);
+        return so;
     }
     public static List<HaNoiHouse> inputHouseList(int flag, List<HaNoiHouse> list) {
         Scanner input = new Scanner(System.in);
@@ -52,12 +52,12 @@ public class ManagerHouse {
         int m = list.size();
         
         if(flag == 0) {
-            System.out.print("Nhập số lượng nhà: ");
+            System.out.print("Nhap so nha: ");
             n = Integer.parseInt(input.nextLine());
         } 
         
         else {
-            System.out.print("Nhap số lượng nhà cần nhập thêm: ");
+            System.out.print("Nhap so nha can them: ");
             n = Integer.parseInt(input.nextLine());
         }
         
@@ -65,11 +65,11 @@ public class ManagerHouse {
             HaNoiHouse house = new HaNoiHouse();
             
             if(i == 0) {
-                System.out.println("Nhập ngôi nhà thứ " +(i+1));
+                System.out.println("Nhap nha thu " +(i+1));
             } 
             
             else {
-                System.out.println("Nhập ngôi nhà thứ " +i);
+                System.out.println("Nhap nha thu " +i);
             }
             
             house.input();
@@ -79,11 +79,11 @@ public class ManagerHouse {
     }
     public static void displayHouseList(List<HaNoiHouse> list, int chose) {
         if(chose == 2) {
-            System.out.println("Danh sách nhà đã nhập:");
+            System.out.println("Danh sach cac nha da nhap:");
         }
         
         if(chose == 3) {
-            System.out.println("Danh sách nhà theo địa chỉ:");
+            System.out.println("Danh sach nha theo dia chi:");
         }
         
         for(HaNoiHouse house : list) {
@@ -114,7 +114,7 @@ public class ManagerHouse {
     public static void searchByAddress(List<HaNoiHouse> list) {
         Scanner input = new Scanner(System.in);
         
-        System.out.print("Nhập địa chỉ tìm kiếm: ");
+        System.out.print("Nhap dia chi can tim: ");
         String search = input.nextLine();
         int flag = 0;
         
@@ -126,11 +126,11 @@ public class ManagerHouse {
         }
         
         if(flag == 0) {
-            System.out.println("Khong tìm được nhà có địa chỉ phù hợp.");
+            System.out.println("Du lieu chua co dia chi ngoi nha");
         } 
         
         else {
-            System.out.printf("Tìm được %d nhà có địa chỉ phù hợp.", flag);
+            System.out.printf("Co %d ngoi nha co dia chi nhu tren", flag);
         }
     }
     
@@ -139,7 +139,7 @@ public class ManagerHouse {
         
         if(flag == 0 && check != 1) {
             chose = 1;
-            System.out.println("Danh sách trống. Nhập thông tin nhà trước.");
+            System.out.println("Chua co danh sach _______ Xin moi nhap danh sach: ");
         } 
         
         else {
@@ -150,7 +150,7 @@ public class ManagerHouse {
     
     public static int choseNextOrNo() {
         Scanner input = new Scanner(System.in);
-        System.out.print("\nTiếp tục lựa chọn khác? YES/NO ");
+        System.out.print("\nContinue??? YES/NO ");
         String next = input.nextLine();
         
         if(next.equalsIgnoreCase("yes")) {
@@ -162,7 +162,7 @@ public class ManagerHouse {
         } 
         
         else {
-            System.out.print("Nhập sai từ khóa. Chỉ được nhập YES hoặc NO.");
+            System.out.print("Nhap sai yeu cau");
             return choseNextOrNo();
         }
     }

@@ -65,25 +65,25 @@ public class Author implements IAuthor {
 
     @Override
     public void input() {
-        System.out.print("Nhập tên: ");
+        System.out.print("Nhap ten: ");
         this.authorName = input.nextLine();
         
         try {
-            System.out.print("Nhập tuổi: ");
+            System.out.print("Nhap tuoi: ");
             this.authorAge = Integer.parseInt(input.nextLine());
         } 
         
         catch(Exception e) {
-            System.out.println("Nhập sai quy cách. Chỉ được nhập chữ số.");
-            System.out.print("Nhập tuổi: ");
+            System.out.println("***Chi duoc nhap so***");
+            System.out.print("Nhap lai tuoi: ");
             this.authorAge = Integer.parseInt(input.nextLine());
         }
         
-        System.out.print("Nhập bút danh: ");
+        System.out.print("Nhap but danh: ");
         this.authorPseu = input.nextLine();
-        System.out.print("Nhập ngày sinh: ");
+        System.out.print("Nhap ngay sinh: ");
         this.authorBirth = input.nextLine();
-        System.out.print("Nhập quê quán: ");
+        System.out.print("Nhap que: ");
         this.authorHome = input.nextLine();
     }
 
