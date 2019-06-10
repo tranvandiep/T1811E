@@ -53,7 +53,7 @@ public class BT39 {
             }
         }
 --------------------------------------------------------*/
-/*Practice 4:
+
         int max;
         Scanner input = new Scanner(System.in);
         System.out.printf("Input max: ");
@@ -69,7 +69,8 @@ public class BT39 {
                          F[i]);
              }
         }
----------------------------------------------------------*/ 
+ 
+/*
         int n;
         int p;
         int tmpSort;
@@ -101,6 +102,6 @@ public class BT39 {
                 System.out.println(myArr[i]);
             }
         }
-        
+--------------------------------------------*/       
     }
 }
