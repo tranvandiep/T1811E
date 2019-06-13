@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bai46;
+package bai46;
 
 import java.util.Scanner;
 

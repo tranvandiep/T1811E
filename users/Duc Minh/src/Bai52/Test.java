@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bai52;
+package bai52;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,7 +69,7 @@ public class Test {
                     System.out.print("Nhap ten tac gia can tim: ");
                     String authorFind = input.nextLine();
 
-                    for (AptechBook atB: bookList) {
+                    for (AptechBook atB : bookList) {
                         if (atB.getBookAuthor().equalsIgnoreCase(authorFind)) {
                             atB.display();
                         }

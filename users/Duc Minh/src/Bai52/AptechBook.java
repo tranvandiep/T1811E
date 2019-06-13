@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bai52;
+package bai52;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -55,7 +54,7 @@ public class AptechBook extends Book {
     @Override
     public void input() {
         super.input(); //To change body of generated methods, choose Tools | Templates.
-        
+
         Scanner input = new Scanner(System.in);
         System.out.print("Nhap ngon ngu: ");
         language = input.nextLine();
@@ -75,5 +74,4 @@ public class AptechBook extends Book {
         return "AptechBook{" + "language=" + language + ", semester=" + semester + '}';
     }
 
-    
 }

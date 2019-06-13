@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bai43;
+package bai43;
 
 import java.util.Scanner;
 
@@ -12,9 +12,10 @@ import java.util.Scanner;
  * @author Minh
  */
 public class Bai2 {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        
+
         System.out.println("Nhap mot so:");
         int a = input.nextInt();
         System.out.println("Nhap mot so double:");
@@ -23,10 +24,10 @@ public class Bai2 {
         String c = input.nextLine();
         System.out.println("Nhap mot chuoi:");
         String d = input.nextLine();
-        
+
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
         System.out.println(d);
-    }    
+    }
 }

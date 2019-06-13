@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bai56;
+package bai56;
 
 import java.util.Scanner;
 
@@ -77,7 +77,7 @@ public class StudentAptech implements IMark {
     @Override
     public void input() {
         Scanner input = new Scanner(System.in);
-        
+
         System.out.print("Input Student ID: ");
         StuId = input.nextLine();
         System.out.print("Input Student Name: ");
@@ -100,6 +100,4 @@ public class StudentAptech implements IMark {
         return "StudentAptech{" + "StuId=" + StuId + ", StuName=" + StuName + ", gender=" + gender + ", birthday=" + birthday + ", nativePlace=" + nativePlace + '}';
     }
 
-    
-    
 }

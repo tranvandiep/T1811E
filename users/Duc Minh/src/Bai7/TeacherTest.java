@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bai7;
+package bai7;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -51,7 +51,7 @@ public class TeacherTest {
                             maxSalary = teacherList.get(i).totalSalary;
                         }
                     }
-                    
+
                     System.out.print("Giao vien co luong cao nhat la: ");
                     teacherList.get(maxCache).showInfo();
                     break;
