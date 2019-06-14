@@ -32,7 +32,7 @@ public class ManagerHouse {
                     break;
                 case 3:
                     sortByDiaChi();
-                    display();2
+                    display();
                     break;
                 case 4:
                     searchByDiaChi();
