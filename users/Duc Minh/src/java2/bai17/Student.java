@@ -85,7 +85,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "rollNo=" + rollNo + ", name=" + name + ", sex=" + sex + ", age=" + age + ", email=" + email + ", address=" + address + ", studentMap=" + '}';
+        return "Student{" + "rollNo=" + rollNo + ", name=" + name + ", sex=" + sex + ", age=" + age + ", email=" + email + ", address=" + address + '}';
     }
 
     public void input() {
@@ -93,14 +93,19 @@ public class Student {
 
         System.out.println("Nhap so bao danh: ");
         rollNo = input.nextLine();
+
         System.out.println("Nhap ten sinh vien: ");
         name = input.nextLine();
+
         System.out.println("Nhap gioi tinh: ");
         sex = input.nextLine();
+
         System.out.println("Nhap so tuoi: ");
         age = Integer.parseInt(input.nextLine());
+
         System.out.println("Nhap email: ");
         email = input.nextLine();
+
         System.out.println("Nhap dia chi: ");
         address = input.nextLine();
     }
@@ -129,6 +134,7 @@ public class Student {
                         std.input();
 
                         stdList.add(std);
+                        studentMap.put(std.getRollNo(), std);
                     }
                     break;
                 case 2:
@@ -140,8 +146,8 @@ public class Student {
                     System.out.println("Nhap so bao danh can tim: ");
                     String find = input.nextLine();
 
-                    Student std = studentMap.get(find);
-                    std.display();
+                    Student stdFind = studentMap.get(find);
+                    stdFind.display();
                     break;
                 case 4:
                     System.out.println("Goodbye!");
