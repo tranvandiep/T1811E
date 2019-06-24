@@ -15,18 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author PC
  */
-class Product {
+
+class Category {
     int id;
     String name;
-    int value;
 
-    public Product() {
+    public Category() {
     }
 
     public int getId() {
@@ -45,74 +46,60 @@ class Product {
         this.name = name;
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public Product(int id, String name, int value) {
+    public Category(int id, String name) {
         this.id = id;
         this.name = name;
-        this.value = value;
     }
-
-    
     
 }
 
-public class baitap607I extends javax.swing.JFrame {
-
+public class baitap189 extends javax.swing.JFrame {
     DefaultTableModel tableModel;
+    /**
+     * Creates new form baitap189
+     */
+    List<Category> cateList = new ArrayList<>();
     
     int currentIndex = -1;
-/**
-     * Creates new form baitap607
-     */
-        List<Product> prodList = new ArrayList<>();
     
-    
-    public baitap607I() {
+    public baitap189() {
         initComponents();
         
-        tableModel = (DefaultTableModel)tabProduct.getModel();
-        loadProductFromData();
-        displayProductFromData();
+        tableModel = (DefaultTableModel)tabCategory.getModel();
+        
+        loadData();
+        displayData();
     }
     
-    private void loadProductFromData() {
+    private void loadData() {
         try {
-            prodList.clear();
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/number", "root", "");
-            String sql = "select * from integertab";
-            Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery(sql);
+            cateList.clear();
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/category", "root", "");
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery("select * from list");
             
             while(rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-                int value = rs.getInt("value");
-                Product prod = new Product(id, name, value);
-                prodList.add(prod);
+                Category cate = new Category(id, name);
+                cateList.add(cate);
             }
             
             stm.close();
-            con.close();
+            conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(baitap607I.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(baitap189.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    private void displayProductFromData() {
+    private void displayData() {
         tableModel.setRowCount(0);
         
-        for(Product prod : prodList) {
-            tableModel.addRow(new Object[]{tableModel.getRowCount() + 1, prod.getName(), prod.getValue()});
+        for(Category cat : cateList) {
+            tableModel.addRow(new Object[]{tableModel.getRowCount() + 1, cat.getName()});
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,14 +111,12 @@ public class baitap607I extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        btnFix = new javax.swing.JButton();
+        txtCateName = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        btnDel = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        intValue = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabProduct = new javax.swing.JTable();
+        tabCategory = new javax.swing.JTable();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -150,38 +135,42 @@ public class baitap607I extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nhap thong tin");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Nhap thong tin", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
+        jPanel1.setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Nhap danh muc");
+        jLabel1.setText("Ten danh muc:");
 
-        txtName.addActionListener(new java.awt.event.ActionListener() {
+        txtCateName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
+                txtCateNameActionPerformed(evt);
             }
         });
 
-        btnFix.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnFix.setText("Sua");
-
         btnAdd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAdd.setText("Them");
+        btnAdd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
-        btnDel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnDel.setText("Xoa");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Gia tri");
-
-        intValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        intValue.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnUpdate.setText("Sua");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                intValueActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDelete.setText("Xoa");
+        btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -190,51 +179,51 @@ public class baitap607I extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(63, 63, 63)
-                        .addComponent(btnFix, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(intValue, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))))
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCateName, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(intValue))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFix, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCateName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        tabProduct.setModel(new javax.swing.table.DefaultTableModel(
+        tabCategory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "STT", "Ten danh muc", "Gia tri"
+                "Title 1", "Title 2"
             }
-        ));
-        jScrollPane1.setViewportView(tabProduct);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabCategory);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -307,17 +296,17 @@ public class baitap607I extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -327,53 +316,123 @@ public class baitap607I extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+    private void txtCateNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCateNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
+    }//GEN-LAST:event_txtCateNameActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        String name = txtName.getText().toString();
-        int value = Integer.parseInt(intValue.getText().toString());
+        String name = txtCateName.getText().toString();
         
-        Product prod = null;
+        Category cate = null;
         if(currentIndex == -1) {
-            prod = new Product(0, name, value);
+            cate = new Category(0, name);
         } else {
-            prod = prodList.get(currentIndex);
-            prod.setName(name);
-            prod.setValue(value);
+            cate = cateList.get(currentIndex);
+            cate.setName(name);
         }
         currentIndex = -1;
-        insert(prod);
+        insert(cate);
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void intValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intValueActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_intValueActionPerformed
 
-    private void insert(Product prod) {
+        String name = "";
+        currentIndex = tabCategory.getSelectedRow();
+        
+        if(currentIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Chua chon dong de sua");
+            return;
+        } else {
+            name = cateList.get(currentIndex).getName();
+        }
+        currentIndex = -1;
+        update(name);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        currentIndex = tabCategory.getSelectedRow();
+        String name = "";
+          
+        if(currentIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Khong co du lieu de xoa");
+            return;
+        } else {
+            name = cateList.get(currentIndex).getName();
+            cateList.remove(currentIndex);
+        }
+        currentIndex = -1;
+        delete(name);
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void insert(Category cate) {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/number", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/category", "root", "");
             String sql = "";
-            if(prod.getId() > 0) {
-                sql = "update integertab set name = ?, value = ?";
+            if(cate.getId() > 0) {
+                sql = "update list set name = ?";
             } else {
-                sql = "insert into integertab(name, value) values(?, ?)";
+                sql = "insert into list(name) values(?)";
             }
-            PreparedStatement prestm = con.prepareStatement(sql);
-            prestm.setString(1, prod.getName());
-            prestm.setInt(2, prod.getValue());
-            
+            PreparedStatement prestm = conn.prepareStatement(sql);
+            prestm.setString(1, cate.getName());
             prestm.execute();
+            prestm.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(baitap189.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        loadData();
+        displayData();
+    }
+    
+    private void delete(String name) {
+        int option = JOptionPane.showConfirmDialog(this, "Ban co muon xoa dong nay?", "Confirm", JOptionPane.YES_NO_OPTION);
+        if(option != JOptionPane.YES_OPTION) {
+            return;
+        } else {
+            try {
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/category", "root", "");
+                PreparedStatement prestm = conn.prepareStatement("delete from list where name = ?");
+                prestm.setString(1, name);
+                option = prestm.executeUpdate();
+                if(option != -1) {
+                    JOptionPane.showMessageDialog(this, "Dong da bi xoa");
+                }
+                
+                prestm.close();
+                conn.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(baitap189.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        loadData();
+        displayData();
+    }
+    
+    private void update(String name) {
+        try {
+            String newName = JOptionPane.showInputDialog(this, "Nhap ten danh muc moi", "New Name", JOptionPane.INFORMATION_MESSAGE);
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/category", "root", "");
+            PreparedStatement prestm = conn.prepareStatement("update list set name = ? where name = ?");
+            prestm.setString(1, newName);
+            prestm.setString(2, name);
+            int update = prestm.executeUpdate();
+            if(update != -1) {
+                JOptionPane.showMessageDialog(this, "Sua thanh cong");
+            }
             
             prestm.close();
-            con.close();
+            conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(baitap607I.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(baitap189.class.getName()).log(Level.SEVERE, null, ex);
         }
-        loadProductFromData();
-        displayProductFromData();
+        loadData();
+        displayData();
     }
     
     /**
@@ -393,21 +452,20 @@ public class baitap607I extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(baitap607I.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(baitap189.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(baitap607I.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(baitap189.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(baitap607I.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(baitap189.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(baitap607I.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(baitap189.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new baitap607I().setVisible(true);
+                new baitap189().setVisible(true);
             }
         });
     }
@@ -415,8 +473,8 @@ public class baitap607I extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDel;
-    private javax.swing.JButton btnFix;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
@@ -425,9 +483,7 @@ public class baitap607I extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JTextField intValue;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuBar menuBar;
@@ -435,8 +491,8 @@ public class baitap607I extends javax.swing.JFrame {
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
-    private javax.swing.JTable tabProduct;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JTable tabCategory;
+    private javax.swing.JTextField txtCateName;
     // End of variables declaration//GEN-END:variables
 
 }
