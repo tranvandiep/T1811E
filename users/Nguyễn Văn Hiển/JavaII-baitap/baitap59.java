@@ -7,7 +7,6 @@ package pkg1811e.java.DataStructure;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -241,7 +240,7 @@ class InvalidRollNo extends Thread {
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.write(invalid.getData());
                     bw.flush();
-                    System.out.println("Ma sv khong hop le: "+invalid.getData() +"\n");
+                    System.out.println("Ma sv khong hop le: " +invalid.getData() +"\n");
                     invalid.notify();
                     try {
                         invalid.wait();
