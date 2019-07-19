@@ -1,0 +1,55 @@
+[
+	{
+		"information": {
+			"name": "T1801A",
+			"address": "Detech Building"
+		},
+		"studentList": [
+			{
+				"fullname": "Tran Van A",
+				"birthday": "01-01-19991",
+				"email": "tranvana@gmail.com",
+				"address": "Nam Dinh",
+				"gender": "Nam"
+			},{
+				"fullname": "Tran Van A",
+				"birthday": "01-01-19991",
+				"email": "tranvana@gmail.com",
+				"address": "Nam Dinh",
+				"gender": "Nam"
+			},{
+				"fullname": "Tran Van A",
+				"birthday": "01-01-19991",
+				"email": "tranvana@gmail.com",
+				"address": "Nam Dinh",
+				"gender": "Nam"
+			}
+		]
+	},{
+		"information": {
+			"name": "T1804M",
+			"address": "Detech Building"
+		},
+		"studentList": [
+			{
+				"fullname": "Tran Van A",
+				"birthday": "01-01-19991",
+				"email": "tranvana@gmail.com",
+				"address": "Nam Dinh",
+				"gender": "Nam"
+			},{
+				"fullname": "Tran Van A",
+				"birthday": "01-01-19991",
+				"email": "tranvana@gmail.com",
+				"address": "Nam Dinh",
+				"gender": "Nam"
+			},{
+				"fullname": "Tran Van A",
+				"birthday": "01-01-19991",
+				"email": "tranvana@gmail.com",
+				"address": "Nam Dinh",
+				"gender": "Nam"
+			}
+		]
+	}
+]
